@@ -1,15 +1,5 @@
-# Lab: doctests + continuous integration
+# lab-doctests
 
-<img src="https://github.com/mikeizbicki/lab-doctests/workflows/tests/badge.svg" />
+Starter code for the **Doctests** lab in *CSCI 40: Computing for the Web*.
 
-**Instructions:**
-
-1. Complete the functions in the `lab.py` file so that all doctests pass.
-
-2. Follow the instructions in the [example-doctests repo](https://github.com/mikeizbicki/example-doctests) to:
-
-    1. Upload your completed file to github
-
-    2. Update the `README.md` file so that the test case badge turns green.
-
-3. Upload the url to your github repo on canvas.
+[Course assignment](https://csci40.rtealwitter.com/topics/02_python/lab.html)
