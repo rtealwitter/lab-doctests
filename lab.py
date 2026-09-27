@@ -1,18 +1,8 @@
-#!/bin/python
+#!/usr/bin/env python3
 
-'''
-The purpose of this file is to help students practice writing functions and using doctests.
+'''Practice functions and doctests.
 
-There are 30 functions here, but each function should take no more than 5 minutes to complete.
-So this lab should take at most 30*5 = 150 minutes = 2.5 hours.
-If you find yourself needing more than 5 minutes on a function,
-ask for help from: the instructor, a classmate, or a QCL tutor.
-
-WARNING:
-All of these functions can easily be solved with AI tools like ChatGPT or Copilot.
-You should practice writing the answers to these functions by yourself, however.
-If you can't do these problems by yourself,
-you definitely won't be able to do the problems that AI can't solve that we will see later in the semester.
+Assignment instructions: https://csci40.rtealwitter.com/topics/02_python/lab.html
 '''
 
 
