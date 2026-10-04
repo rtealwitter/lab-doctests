@@ -1,15 +1,39 @@
 #!/usr/bin/env python3
 
-'''Practice functions and doctests.
+'''Game-night calculations and rule cards, with public doctests.
 
 Assignment instructions: https://csci40.rtealwitter.com/topics/02_python/lab.html
 '''
 
 
-################################################################################
-# PART I:
-# These functions review the control flow and math operations
-################################################################################
+# Date and Player Groups
+# ----------------------
+
+
+def is_leap_year(n):
+    '''
+    Return True if n is a leap year and False otherwise.
+
+    HINT:
+    The formula for calculating leap years is more complicated than you might think.
+    You can find the formula at <https://www.mathsisfun.com/leap-years.html>.
+
+    >>> is_leap_year(1582)
+    False
+    >>> is_leap_year(2000)
+    True
+    >>> is_leap_year(2018)
+    False
+    >>> is_leap_year(2019)
+    False
+    >>> is_leap_year(2020)
+    True
+    >>> is_leap_year(2200)
+    False
+    >>> is_leap_year(2400)
+    True
+    '''
+
 
 def is_even(n):
     '''
@@ -49,6 +73,34 @@ def is_odd(n):
     >>> type(is_odd(0))
     <class 'bool'>
     '''
+
+
+def factorial(n):
+    '''
+    Return the factorial of n.
+    Recall that the factorial of n is defined to be: 1*2*3*...*(n-1)*n
+
+    HINT:
+    Use a for loop from 1 to n.
+    On each iteration, multiply the current result by the current iteration number.
+
+    >>> factorial(1)
+    1
+    >>> factorial(2)
+    2
+    >>> factorial(3)
+    6
+    >>> factorial(4)
+    24
+    >>> factorial(10)
+    3628800
+    >>> factorial(100)
+    93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+    '''
+
+
+# Score Comparisons and Cumulative Totals
+# ---------------------------------------
 
 
 def absolute_value(n):
@@ -129,29 +181,55 @@ def max_num_abs(a, b):
     '''
 
 
-def is_leap_year(n):
+def median(a, b, c):
     '''
-    Return True if n is a leap year and False otherwise.
+    Given 3 int values, return the value in the middle.
 
-    HINT:
-    The formula for calculating leap years is more complicated than you might think.
-    You can find the formula at <https://www.mathsisfun.com/leap-years.html>.
-
-    >>> is_leap_year(1582)
-    False
-    >>> is_leap_year(2000)
-    True
-    >>> is_leap_year(2018)
-    False
-    >>> is_leap_year(2019)
-    False
-    >>> is_leap_year(2020)
-    True
-    >>> is_leap_year(2200)
-    False
-    >>> is_leap_year(2400)
-    True
+    >>> median(1, 2, 3)
+    2
+    >>> median(2, 1, 3)
+    2
+    >>> median(3, 1, 2)
+    2
+    >>> median(2, 2, 1)
+    2
+    >>> median(5, 4, 4)
+    4
+    >>> median(-3, -2, 7)
+    -2
     '''
+
+
+def sum_between(a, b):
+    '''
+    Find the sum of all numbers between a and b inclusive.
+
+    >>> sum_between(1, 2)
+    3
+    >>> sum_between(1, 3)
+    6
+    >>> sum_between(1, 5)
+    15
+    >>> sum_between(2, 1)
+    3
+    >>> sum_between(-5, 5)
+    0
+    >>> sum_between(5, 10)
+    45
+    >>> sum_between(1000, 10000)
+    49505500
+    >>> sum_between(10, -1000)
+    -500445
+    >>> sum_between(0, 123456)
+    7620753696
+    '''
+
+
+# Number-Puzzle Cards
+# -------------------
+
+
+# Some cards have no hints. Choose the if/for/while statements you need.
 
 
 def num_digits(n):
@@ -183,30 +261,6 @@ def num_digits(n):
     2
     >>> type(num_digits(4))
     <class 'int'>
-    '''
-
-
-def factorial(n):
-    '''
-    Return the factorial of n.
-    Recall that the factorial of n is defined to be: 1*2*3*...*(n-1)*n
-
-    HINT:
-    Use a for loop from 1 to n.
-    On each iteration, multiply the current result by the current iteration number.
-
-    >>> factorial(1)
-    1
-    >>> factorial(2)
-    2
-    >>> factorial(3)
-    6
-    >>> factorial(4)
-    24
-    >>> factorial(10)
-    3628800
-    >>> factorial(100)
-    93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
     '''
 
 
@@ -304,71 +358,6 @@ def fibonacci(n):
     '''
 
 
-################################################################################
-# PART II:
-#
-# The problems below use all the same techniques as the problems above.
-# But they don't contain any hints about how to solve them.
-# So you will have to figure out for yourself when to use if/for/while statements.
-################################################################################
-
-
-def cigar_party(cigars, is_weekend):
-    '''
-    When squirrels get together for a party, they like to have cigars.
-    A squirrel party is successful when the number of cigars is between 40 and 60, inclusive.
-    Unless it is the weekend, in which case there is no upper bound on the number of cigars.
-    Return True if the party with the given values is successful, or False otherwise.
-
-    >>> cigar_party(30, False)
-    False
-    >>> cigar_party(50, False)
-    True
-    >>> cigar_party(70, True)
-    True
-    >>> cigar_party(10, True)
-    False
-    >>> cigar_party(40, False)
-    True
-    '''
-
-
-def speeding_fine(speed, birthday):
-    '''
-    The police department needs a function that computes the size of a fine to give to someone pulled over for speeding,
-    and its your job to translate the law into code to implement this function.
-
-    The law states that:
-    if the speed was 60 or less, the fine is 0 dollars.
-    If the speed is between 61-80 inclusive, the fine is 100 dollars.
-    And if the speed is greater than 80, the fine is 2000 dollars.
-    The law has a strange provision, however, that when it is someone's birthday they are allowed to drive 5 mph faster in all cases.
-
-    >>> speeding_fine(60, False)
-    0
-    >>> speeding_fine(60, True)
-    0
-    >>> speeding_fine(61, False)
-    100
-    >>> speeding_fine(61, True)
-    0
-    >>> speeding_fine(65, True)
-    0
-    >>> speeding_fine(80, True)
-    100
-    >>> speeding_fine(81, True)
-    100
-    >>> speeding_fine(86, True)
-    2000
-    >>> speeding_fine(81, False)
-    2000
-    >>> speeding_fine(101, True)
-    2000
-    >>> speeding_fine(90, False)
-    2000
-    '''
-
-
 def near_ten(x):
     '''
     Return True if num is within 2 of a multiple of 10.
@@ -443,53 +432,72 @@ def funny_sum(a, b, c):
     '''
 
 
-def median(a, b, c):
+# Comic Rule Cards
+# ----------------
+
+
+# Some cards have no hints. Choose the if/for/while statements you need.
+
+
+def cigar_party(cigars, is_weekend):
     '''
-    Given 3 int values, return the value in the middle.
+    When squirrels get together for a party, they like to have cigars.
+    A squirrel party is successful when the number of cigars is between 40 and 60, inclusive.
+    Unless it is the weekend, in which case there is no upper bound on the number of cigars.
+    Return True if the party with the given values is successful, or False otherwise.
 
-    >>> median(1, 2, 3)
-    2
-    >>> median(2, 1, 3)
-    2
-    >>> median(3, 1, 2)
-    2
-    >>> median(2, 2, 1)
-    2
-    >>> median(5, 4, 4)
-    4
-    >>> median(-3, -2, 7)
-    -2
+    >>> cigar_party(30, False)
+    False
+    >>> cigar_party(50, False)
+    True
+    >>> cigar_party(70, True)
+    True
+    >>> cigar_party(10, True)
+    False
+    >>> cigar_party(40, False)
+    True
     '''
 
 
-def sum_between(a, b):
+def speeding_fine(speed, birthday):
     '''
-    Find the sum of all numbers between a and b inclusive.
+    The police department needs a function that computes the size of a fine to give to someone pulled over for speeding,
+    and its your job to translate the law into code to implement this function.
 
-    >>> sum_between(1, 2)
-    3
-    >>> sum_between(1, 3)
-    6
-    >>> sum_between(1, 5)
-    15
-    >>> sum_between(2, 1)
-    3
-    >>> sum_between(-5, 5)
+    The law states that:
+    if the speed was 60 or less, the fine is 0 dollars.
+    If the speed is between 61-80 inclusive, the fine is 100 dollars.
+    And if the speed is greater than 80, the fine is 2000 dollars.
+    The law has a strange provision, however, that when it is someone's birthday they are allowed to drive 5 mph faster in all cases.
+
+    >>> speeding_fine(60, False)
     0
-    >>> sum_between(5, 10)
-    45
-    >>> sum_between(1000, 10000)
-    49505500
-    >>> sum_between(10, -1000)
-    -500445
-    >>> sum_between(0, 123456)
-    7620753696
+    >>> speeding_fine(60, True)
+    0
+    >>> speeding_fine(61, False)
+    100
+    >>> speeding_fine(61, True)
+    0
+    >>> speeding_fine(65, True)
+    0
+    >>> speeding_fine(80, True)
+    100
+    >>> speeding_fine(81, True)
+    100
+    >>> speeding_fine(86, True)
+    2000
+    >>> speeding_fine(81, False)
+    2000
+    >>> speeding_fine(101, True)
+    2000
+    >>> speeding_fine(90, False)
+    2000
     '''
 
-################################################################################
-# PART III:
-# These functions require you to use python lists.
-################################################################################
+
+# A Report From Ordered Round Results
+# -----------------------------------
+
 
 def largest(xs):
     '''
@@ -701,6 +709,10 @@ def has_index_at_value(xs):
     >>> has_index_at_value([2, 9, 5, 4, 19, 4, 4, 4, 4, 4])
     False
     '''
+
+
+# Results Collected Across Rounds
+# -------------------------------
 
 
 def nested_filter_odd(xss):
