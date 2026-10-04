@@ -290,7 +290,7 @@ def is_prime(n):
 
 def is_perfect_square(n):
     '''
-    Return True if n is is the product of two integers.
+    Return True if n is an integer multiplied by itself.
     That is, return True if there exists an integer i such that i*i==n.
 
     HINT:
